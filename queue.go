@@ -68,7 +68,7 @@ func ParseQueueMetrics(input []byte) *QueueMetrics {
 
 // Execute the squeue command and return its output
 func QueueData() []byte {
-  cmd := exec.Command("/usr/bin/squeue", "-h", "-o %A,%T")
+  cmd := exec.Command("squeue", "-h", "-o %A,%T")
   stdout, err := cmd.StdoutPipe()
   if err != nil { log.Fatal(err) }
   if err := cmd.Start(); err != nil { log.Fatal(err) }
